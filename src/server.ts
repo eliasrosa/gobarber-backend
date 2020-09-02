@@ -1,7 +1,11 @@
 import 'reflect-metadata';
+
 import express from 'express';
+import 'express-async-errors';
+
 import routes from './routes';
 import './database';
+import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 
@@ -11,6 +15,8 @@ app.use(routes);
 routes.get('/', (request, response) => {
   return response.json({ message: 'This API is running!' });
 });
+
+routes.use(errorHandler);
 
 app.listen(3333, () => {
   // eslint-disable-next-line no-console
