@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import CreateSessionService from '../services/CreateSessionService';
+import CreateSessionService from '../../services/CreateSessionService';
 
-const sessions = Router();
+const sessionsGuestRoutes = Router();
 
-sessions.post('/', async (request, response) => {
+sessionsGuestRoutes.post('/', async (request, response) => {
   try {
     const { email, password } = request.body;
     const session = new CreateSessionService();
@@ -21,4 +21,4 @@ sessions.post('/', async (request, response) => {
   }
 });
 
-export default sessions;
+export default sessionsGuestRoutes;
