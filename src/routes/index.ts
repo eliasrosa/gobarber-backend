@@ -7,6 +7,12 @@ import usersGuestRoutes from './guest/users.routes';
 import sessionsGuestRoutes from './guest/sessions.routes';
 
 const routes = Router();
+
+// This API is running!
+routes.get('/', (request, response) => {
+  return response.json({ message: 'This API is running!' });
+});
+
 // guest routes
 routes.use('/sessions', sessionsGuestRoutes);
 routes.use('/users', usersGuestRoutes);

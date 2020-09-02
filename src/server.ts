@@ -11,11 +11,6 @@ const app = express();
 
 app.use(express.json());
 app.use(routes);
-
-routes.get('/', (request, response) => {
-  return response.json({ message: 'This API is running!' });
-});
-
 routes.use(errorHandler);
 
 app.listen(3333, () => {
